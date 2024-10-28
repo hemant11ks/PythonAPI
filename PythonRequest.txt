@@ -1,0 +1,66 @@
+1. READ : GET
+
+import requests
+
+project_id = 123
+url = f"https://gitlab.example.com/api/v4/projects/{project_id}"
+headers = {
+    "PRIVATE-TOKEN": "<your_access_token>"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+
+--------------------------------------------------------------------
+
+2. CREATE : POST
+
+import requests
+
+url = "https://gitlab.example.com/api/v4/projects"
+headers = {
+    "PRIVATE-TOKEN": "<your_access_token>"
+}
+data = {
+    "name": "new-repo",
+    "visibility": "private"
+}
+
+response = requests.post(url, headers=headers, data=data)
+print(response.json())
+
+------------------------------------------------------------------
+
+3. UPDATE : PUT
+
+import requests
+
+project_id = 123
+url = f"https://gitlab.example.com/api/v4/projects/{project_id}"
+headers = {
+    "PRIVATE-TOKEN": "<your_access_token>"
+}
+data = {
+    "name": "updated-repo-name"
+}
+
+response = requests.put(url, headers=headers, data=data)
+print(response.json())
+
+-----------------------------------------------------------------
+
+4. DELETE
+
+import requests
+
+project_id = 123
+url = f"https://gitlab.example.com/api/v4/projects/{project_id}"
+headers = {
+    "PRIVATE-TOKEN": "<your_access_token>"
+}
+
+response = requests.delete(url, headers=headers)
+print(response.status_code)
+
+
+
